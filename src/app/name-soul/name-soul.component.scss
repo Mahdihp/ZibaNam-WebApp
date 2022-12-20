@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Vazirmatn";
+  src: url('../../assets/fonts/Vazirmatn[wght].woff2');
+}
+
+@font-face {
+  font-family: "VazirmatnBold";
+  src: url('../../assets/fonts/Vazirmatn-Bold.woff2');
+}
+
+@font-face {
+  font-family: "VazirmatnMedium";
+  src: url('../../assets/fonts/Vazirmatn-Medium.woff2');
+}
+
+
+ion-title {
+  font-family: VazirmatnBold;
+  font-size: 20px;
+  direction: rtl;
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-input {
+  font-family: Vazirmatn;
+  font-size: 20px;
+  direction: rtl;
+  text-align: right;
+}
+
+ion-label, ion-item {
+  font-family: Vazirmatn;
+  font-size: 20px;
+  direction: rtl;
+  text-align: center;
+}
+
+
+ion-button {
+  font-family: Vazirmatn;
+  font-size: 20px;
+  text-align: center;
+  width: 90%;
+}
+
+ion-row {
+  text-align: center;
+}
+

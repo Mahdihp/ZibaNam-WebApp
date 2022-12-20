@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {NameSoulComponent} from "./name-soul/name-soul.component";
+import {FolderPage} from "./folder/folder.page";
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'folder/Inbox',
     pathMatch: 'full'
+  },
+  {
+    path: 'folder/soul',
+    component: NameSoulComponent
   },
   {
     path: 'folder/:id',
