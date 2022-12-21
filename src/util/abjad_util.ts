@@ -1,6 +1,6 @@
 export class AbjadUtil {
   private Abjad = new Map<string, number>();
-  //private AbjadReverse = new Map<number, string>();
+  private AbjadLafz = new Map<string, string>();
   private AbjadReverse = new Array<AbjadRevers>();
 
   constructor() {
@@ -43,21 +43,16 @@ export class AbjadUtil {
     this.Abjad.set("ژ", 7);
 
     console.log("this.Abjad.size: " + this.Abjad.size);
-    this.AbjadReverse.push({Number: 1, Word: "الف"});
     this.AbjadReverse.push({Number: 1, Word: "ا"});
-    this.AbjadReverse.push({Number: 1, Word: "آ"});
-    this.AbjadReverse.push({Number: 1, Word: "ء"});
     this.AbjadReverse.push({Number: 2, Word: "ب"});
     this.AbjadReverse.push({Number: 3, Word: "ج"});
     this.AbjadReverse.push({Number: 4, Word: "د"});
     this.AbjadReverse.push({Number: 5, Word: "ه"});
-    this.AbjadReverse.push({Number: 5, Word: "ة"});
     this.AbjadReverse.push({Number: 6, Word: "و‍"});
     this.AbjadReverse.push({Number: 7, Word: "ز"});
     this.AbjadReverse.push({Number: 8, Word: "ح"});
     this.AbjadReverse.push({Number: 9, Word: "ط"});
     this.AbjadReverse.push({Number: 10, Word: "ی"});
-    this.AbjadReverse.push({Number: 10, Word: "ي"});
     this.AbjadReverse.push({Number: 20, Word: "ک"});
     this.AbjadReverse.push({Number: 30, Word: "ل"});
     this.AbjadReverse.push({Number: 40, Word: "م"});
@@ -76,12 +71,76 @@ export class AbjadUtil {
     this.AbjadReverse.push({Number: 800, Word: "ض"});
     this.AbjadReverse.push({Number: 900, Word: "ظ"});
     this.AbjadReverse.push({Number: 1000, Word: "غ"});
-    this.AbjadReverse.push({Number: 20, Word: "گ"});
-    this.AbjadReverse.push({Number: 3, Word: "چ"});
-    this.AbjadReverse.push({Number: 2, Word: "پ"});
-    this.AbjadReverse.push({Number: 7, Word: "ژ"});
     console.log("this.AbjadReverse.length: " + this.AbjadReverse.length);
 
+    this.AbjadLafz.set("ا", "الف");
+    this.AbjadLafz.set("ب", "با");
+    this.AbjadLafz.set("ت", "تا");
+    this.AbjadLafz.set("ث", "ثا");
+    this.AbjadLafz.set("ج", "جیم");
+    this.AbjadLafz.set("ح", "حا");
+    this.AbjadLafz.set("خ", "خا");
+    this.AbjadLafz.set("د", "دال");
+    this.AbjadLafz.set("ذ", "ذال");
+    this.AbjadLafz.set("ر", "را");
+    this.AbjadLafz.set("ز", "زا");
+    this.AbjadLafz.set("س", "سین");
+    this.AbjadLafz.set("ش", "شین");
+    this.AbjadLafz.set("ص", "صاد");
+    this.AbjadLafz.set("ض", "ضاد");
+    this.AbjadLafz.set("ط", "طا");
+    this.AbjadLafz.set("ظ", "ظا");
+    this.AbjadLafz.set("ع", "عین");
+    this.AbjadLafz.set("غ", "غین");
+    this.AbjadLafz.set("ف", "فا");
+    this.AbjadLafz.set("ق", "قاف");
+    this.AbjadLafz.set("ک", "کاف");
+    this.AbjadLafz.set("ل", "لام");
+    this.AbjadLafz.set("م", "میم");
+    this.AbjadLafz.set("ن", "نون");
+    this.AbjadLafz.set("ه", "ها");
+    this.AbjadLafz.set("و", "واو");
+    this.AbjadLafz.set("ی", "یا");
+    console.log("this.AbjadLafz.size: " + this.AbjadLafz.size);
+
+  }
+
+  public RemoveduplicateWord(Word: string): string {
+    //wwre => wre
+    var FinalStr = "";
+    let strings1 = Array.from(new Set(Word.split('')));
+    for (let i = 0; i < strings1.length; i++) {
+      FinalStr += strings1[i];
+    }
+    return FinalStr;
+  }
+
+  public ComputeAbjadToLafz(Word: string[]): string[] {
+    var Ajbad: string[] = [];
+    for (const i in Word) {
+      if (this.AbjadLafz.get(Word[i]) != undefined) {
+        var Lafz = String(this.AbjadLafz.get(Word[i]));
+        // console.log(Lafz);
+        let SplitLafz = Lafz.split("");
+        for (const j in SplitLafz) {
+          Ajbad.push(SplitLafz[j]);
+        }
+      }
+    }
+    return Ajbad;
+  }
+
+  public ComputeNumbetToAbjad(Number: number[]) {
+    var Ajbad: string[] = [];
+    for (const i in Number) {
+      for (const j in this.AbjadReverse) {
+        if (Number[i] == this.AbjadReverse[j].Number) {
+          // console.log(this.AbjadReverse[j]);
+          Ajbad.push(this.AbjadReverse[j].Word);
+        }
+      }
+    }
+    return Ajbad;
   }
 
   public ComputeAbjadWord(Word: string): number {
@@ -99,12 +158,13 @@ export class AbjadUtil {
 
   public ReverseNumber(number: number): string {
     // 2460  => 0 6 4 2
+    // 500
     var Num = String(number).split("");
     var StrNum = "";
     for (let i = Num.length - 1; i >= 0; i--) {
       StrNum += Num[i];
     }
-    console.log(StrNum);
+    //console.log(StrNum);
     return StrNum;
   }
 
@@ -117,6 +177,7 @@ export class AbjadUtil {
 
   public SplitNumer(number: string): number[] {
     // 317 => 3 , 1 , 7 => 300,10,7
+    // 005
     const WordNumber = number.split("");
     var NumberArray: number[] = [];
     for (let i = 0; WordNumber.length > i; i++) {
