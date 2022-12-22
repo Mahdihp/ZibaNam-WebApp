@@ -12,7 +12,8 @@ import {AbjadUtil} from "../../util/abjad_util";
 export class NameSoulComponent implements OnInit {
 
   public folder = "استخراج اسم روح";
-  public MeAndMother = "مهدی گلزار";
+  public MeAndMother = "";
+  public Batn: number = 12;
   // public MeAndMother = "غضنفر نرگس";
   public AbjadNumber!: number;
   public MeAndMotherNew!: string;
@@ -29,10 +30,10 @@ export class NameSoulComponent implements OnInit {
   ngOnInit() {
     //this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
-
+//38740977
   async ComputeAbjadWord() {
     this.MeAndMotherNew = this.MeAndMother;
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < this.Batn; i++) {
       this.AbjadNumber = this.abjadUtil.ComputeAbjadWord(this.MeAndMotherNew);
       console.log("AbjadNumber: " + (i + 1) + " => " + this.AbjadNumber);
 
@@ -65,6 +66,7 @@ export class NameSoulComponent implements OnInit {
     //   position: 'bottom'
     // });
     // await toast.present();
+
   }
 
 

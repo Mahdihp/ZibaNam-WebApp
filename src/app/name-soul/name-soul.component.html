@@ -17,11 +17,20 @@
   <div id="container">
     <ion-grid>
       <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
-        <ion-item>
-          <ion-label style="font-family: Vazirmatn;text-align: right;" position="floating">نام و نام مادر:</ion-label>
-          <ion-input type="text" [(ngModel)]="MeAndMother" placeholder="نام و نام مادر:"
-                     [clearInput]="true"></ion-input>
-        </ion-item>
+        <div class="col">
+          <ion-item>
+            <ion-label style="font-family: Vazirmatn;text-align: right;" position="floating">نام و نام مادر:</ion-label>
+            <ion-input type="text" [(ngModel)]="MeAndMother" placeholder="نام و نام مادر:"
+                       [clearInput]="true"></ion-input>
+          </ion-item>
+        </div>
+        <div class="col">
+          <ion-item>
+            <ion-label style="font-family: Vazirmatn;text-align: right;" position="floating">تعداد محاسبه بطن:</ion-label>
+            <ion-input type="text" [(ngModel)]="Batn" placeholder="تعداد محاسبه بطن:"
+                       [clearInput]="true"></ion-input>
+          </ion-item>
+        </div>
 
       </ion-row>
 
@@ -42,15 +51,16 @@
       </ion-row>
 
       <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
-        <ion-label style="font-family: Vazirmatn;text-align: right;">  حروف ملفوظی : {{AbjadLafzArray}}</ion-label>
+        <ion-label style="font-family: Vazirmatn;text-align: right;"> حروف ملفوظی : {{AbjadLafzArray}}</ion-label>
       </ion-row>
 
       <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
-        <ion-label style="font-family: Vazirmatn;text-align: right;">  حروف ملفوظی : {{MeAndMotherNew}}</ion-label>
+        <ion-label style="font-family: Vazirmatn;text-align: right;"> حروف ملفوظی : {{MeAndMotherNew}}</ion-label>
       </ion-row>
 
       <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
-        <ion-label style="font-family: Vazirmatn;text-align: right;">  حذف حروف تکراری : {{MeAndMotherNewRemoveduplicates}}</ion-label>
+        <ion-label style="font-family: Vazirmatn;text-align: right;"> حذف حروف تکراری
+          : {{MeAndMotherNewRemoveduplicates}}</ion-label>
       </ion-row>
 
     </ion-grid>

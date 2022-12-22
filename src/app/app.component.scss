@@ -3,7 +3,26 @@
   src: url('../assets/fonts/Vazirmatn[wght].woff2');
 }
 
+@font-face {
+  font-family: "VazirmatnBold";
+  src: url('../assets/fonts/Vazirmatn-Bold.woff2');
+}
 
+@font-face {
+  font-family: "VazirmatnMedium";
+  src: url('../assets/fonts/Vazirmatn-Medium.woff2');
+}
+
+ion-list-header{
+  font-family: VazirmatnBold;
+  font-size: 20px;
+  font-weight: bold;
+}
+ion-label{
+  font-family: VazirmatnBold;
+  font-size: 20px;
+  font-weight: bold;
+}
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
