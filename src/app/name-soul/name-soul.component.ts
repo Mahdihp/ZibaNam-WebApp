@@ -11,6 +11,8 @@ import {AbjadUtil} from "../../util/abjad_util";
 })
 export class NameSoulComponent implements OnInit {
 
+//  git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+  //  git push https://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@github.com/Mahdihp/ZibaNam-WebApp.git
   public folder = "استخراج اسم روح";
   public MeAndMother = "";
   public Batn: number = 12;
