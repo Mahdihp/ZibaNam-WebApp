@@ -20,6 +20,8 @@ export class NameSoulComponent implements OnInit {
   public AbjadNumber!: number;
   public MeAndMotherNew!: string;
   public MeAndMotherNewRemoveduplicates !: string;
+  public TabhSoulName !: any;
+  public AbjadSoulName!: number;
   public AbjadNumberArray!: number[];
   public AbjadWordArray!: string[];
   public AbjadLafzArray!: string[];
@@ -60,8 +62,12 @@ export class NameSoulComponent implements OnInit {
       this.MeAndMotherNewRemoveduplicates = this.abjadUtil.RemoveduplicateWord(this.MeAndMotherNew);
       // console.log("MeAndMother ComputeAbjadWord: " + (i + 1) + " => " + this.MeAndMother);
     }
+    this.AbjadSoulName =  this.abjadUtil.ComputeAbjadWord(this.MeAndMotherNewRemoveduplicates);
+    this.TabhSoulName  = this.abjadUtil.ComputeTabhWord(this.MeAndMotherNewRemoveduplicates.split(""));
 
 
+
+    //console.log(map);
     // const toast = await this.toastController.create({
     //   message: this.AbjadNumber.toString() +" --  "+Splitnumber,
     //   duration: 1500,

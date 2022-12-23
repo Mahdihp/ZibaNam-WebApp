@@ -26,7 +26,8 @@
         </div>
         <div class="col">
           <ion-item>
-            <ion-label style="font-family: Vazirmatn;text-align: right;" position="floating">تعداد محاسبه بطن:</ion-label>
+            <ion-label style="font-family: Vazirmatn;text-align: right;" position="floating">تعداد محاسبه بطن:
+            </ion-label>
             <ion-input type="text" [(ngModel)]="Batn" placeholder="تعداد محاسبه بطن:"
                        [clearInput]="true"></ion-input>
           </ion-item>
@@ -61,6 +62,20 @@
       <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
         <ion-label style="font-family: Vazirmatn;text-align: right;"> حذف حروف تکراری
           : {{MeAndMotherNewRemoveduplicates}}</ion-label>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
+        <ion-label style="font-family: Vazirmatn;text-align: right;"> ابجد اسم روح: {{AbjadSoulName}}</ion-label>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center" style="margin-top: 20px;direction: rtl;">
+        <ion-label style="font-family: Vazirmatn;"> طبع حروف اسم:</ion-label>
+        <ion-infinite-scroll>
+          <ion-item *ngFor="let label of TabhSoulName | keyvalue">
+            <ion-label style="font-family: VazirmatnBold; font-size: 20px; font-weight: bold;">{{ label.key }}: {{ label.value }}</ion-label>
+          </ion-item>
+        </ion-infinite-scroll>
+
       </ion-row>
 
     </ion-grid>

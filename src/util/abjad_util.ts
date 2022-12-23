@@ -3,7 +3,47 @@ export class AbjadUtil {
   private AbjadLafz = new Map<string, string>();
   private AbjadReverse = new Array<AbjadRevers>();
 
+
+  private WordAtashi = new Array<string>();
+  private WordKhaki = new Array<string>();
+  private WordBadi = new Array<string>();
+  private WordAbi = new Array<string>();
+
+
   constructor() {
+
+    this.WordAtashi.push("ا");
+    this.WordAtashi.push("ه");
+    this.WordAtashi.push("ط");
+    this.WordAtashi.push("م");
+    this.WordAtashi.push("ف");
+    this.WordAtashi.push("ش");
+    this.WordAtashi.push("ذ");
+
+    this.WordKhaki.push("د");
+    this.WordKhaki.push("ح");
+    this.WordKhaki.push("ل");
+    this.WordKhaki.push("ع");
+    this.WordKhaki.push("ر");
+    this.WordKhaki.push("خ");
+    this.WordKhaki.push("غ");
+
+    this.WordBadi.push("ب");
+    this.WordBadi.push("و");
+    this.WordBadi.push("ی");
+    this.WordBadi.push("ن");
+    this.WordBadi.push("ص");
+    this.WordBadi.push("ت");
+    this.WordBadi.push("ض");
+
+    this.WordAbi.push("ج");
+    this.WordAbi.push("ز");
+    this.WordAbi.push("ک");
+    this.WordAbi.push("س");
+    this.WordAbi.push("ق");
+    this.WordAbi.push("ث");
+    this.WordAbi.push("ظ");
+
     this.Abjad.set("الف", 1);
     this.Abjad.set("ا", 1);
     this.Abjad.set("آ", 1);
@@ -103,6 +143,54 @@ export class AbjadUtil {
     this.AbjadLafz.set("ی", "یا");
     console.log("this.AbjadLafz.size: " + this.AbjadLafz.size);
 
+  }
+
+  public ComputeTabhWord(Word: string[]) {
+    var WordAtashi = new Array<string>();
+    var WordKhaki = new Array<string>();
+    var WordBadi = new Array<string>();
+    var WordAbi = new Array<string>();
+
+    var AllWord = new Map<string, string>();
+
+    for (const i in Word) {
+      for (const j in this.WordAtashi) {
+        if (Word[i] == this.WordAtashi[j]) {
+          WordAtashi.push(this.WordAtashi[j]);
+        }
+      }
+    }
+
+    for (const i in Word) {
+      for (const j in this.WordKhaki) {
+        if (Word[i] == this.WordKhaki[j]) {
+          WordKhaki.push(this.WordKhaki[j]);
+        }
+      }
+    }
+
+    for (const i in Word) {
+      for (const j in this.WordBadi) {
+        if (Word[i] == this.WordBadi[j]) {
+          WordBadi.push(this.WordBadi[j]);
+        }
+      }
+    }
+
+    for (const i in Word) {
+      for (const j in this.WordAbi) {
+        if (Word[i] == this.WordAbi[j]) {
+          WordAbi.push(this.WordAbi[j]);
+        }
+      }
+    }
+
+    AllWord.set("آتشی", WordAtashi.toString());
+    AllWord.set("خاکی", WordKhaki.toString());
+    AllWord.set("بادی", WordBadi.toString());
+    AllWord.set("آبی", WordAbi.toString());
+    console.log(AllWord.entries());
+    return AllWord;
   }
 
   public RemoveduplicateWord(Word: string): string {
