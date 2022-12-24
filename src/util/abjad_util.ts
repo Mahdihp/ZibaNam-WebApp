@@ -190,6 +190,10 @@ export class AbjadUtil {
     AllWord.set("بادی", WordBadi.toString());
     AllWord.set("آبی", WordAbi.toString());
     console.log(AllWord.entries());
+
+    // for (let [key, value] of AllWord) {
+    //   console.log(key, value);
+    // }
     return AllWord;
   }
 
